@@ -19,9 +19,9 @@ Saved images and presets can be found in the `images` and `presets` folders insi
 
 # Example images
 
-![1](https://github.com/ZachHofmeister/ShapeScape/blob/main/example_images/ShapeScape-0.jpg?raw=true)
+![1](https://github.com/ZachHofmeister/ShapeScape/blob/main/example_images/ShapeScape-0.png?raw=true)
 
 ![2](https://github.com/ZachHofmeister/ShapeScape/blob/main/example_images/ShapeScape-1.png?raw=true)
 
 Example of the controls for the program.
-![Controls](https://github.com/ZachHofmeister/ShapeScape/blob/main/example_images/ShapeScape%20Controls.jpg?raw=true)
+![Controls](https://github.com/ZachHofmeister/ShapeScape/blob/main/example_images/ShapeScape%20Controls.png?raw=true)
