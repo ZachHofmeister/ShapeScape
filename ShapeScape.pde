@@ -27,8 +27,8 @@ placementX, placementY,
 currentBlendMode, currentShape, lastShape,
 borderSize, undoAmount,
 currentBoxNum, preset, waves, natPoints;
-String seed, os, licensePath, docsPath;
-boolean guiState, hsbMode, hsbLabeled, trial, triUp, triDown, lastUp, lastDown, modPressed, cPressed, vPressed;
+String seed, docsPath;
+boolean guiState, hsbMode, hsbLabeled, triUp, triDown, lastUp, lastDown, modPressed, cPressed, vPressed;
 String[] prefs, defaultPrefs, imageSaveCount;
 PImage raster;
 
@@ -367,9 +367,7 @@ void drawScape() {
 	if (prevSeeds.size() > 99) prevSeeds.remove(0);
 	randomSeed(seed.hashCode());
 	clearEmptyFiles();
-	if (!trial) {
-		beginRecord(PDF, docsPath + "ShapeScape/images/ShapeScape-" + int(imageSaveCount[0]) + ".pdf");
-	}
+	beginRecord(PDF, docsPath + "ShapeScape/images/ShapeScape-" + int(imageSaveCount[0]) + ".pdf");
 	blendMode(BLEND);
 	colorMode((hsbMode)? HSB:RGB);
 	ellipseMode(CORNERS);
@@ -671,23 +669,21 @@ void keyPressed() {
 			if (guiState) {
 				toggleGUI(false);
 				drawScape();
-				if (!trial) {
-					endRecord();
-					File pdf = new File(docsPath + "ShapeScape/images/ShapeScape-" + int(imageSaveCount[0]) + ".pdf");
-					changeBlendModePDF(pdf, correctBlendModePDF(currentBlendMode));
-				} else {
-					save(docsPath + "ShapeScape/images/ShapeScape-" + int(imageSaveCount[0]) + ".jpg");
-				}
+				//save as vector PDF
+				endRecord();
+				File pdf = new File(docsPath + "ShapeScape/images/ShapeScape-" + int(imageSaveCount[0]) + ".pdf");
+				changeBlendModePDF(pdf, correctBlendModePDF(currentBlendMode));
+        //below is code to save as jpg if desired.
+        //save(docsPath + "ShapeScape/images/ShapeScape-" + int(imageSaveCount[0]) + ".jpg");
 				savePrefsPath(docsPath + "ShapeScape/images/ShapeScape-" + int(imageSaveCount[0]) + "-PRESET");
 				toggleGUI(true);
 			} else {
-				if (!trial) {
-					endRecord();
-					File pdf = new File(docsPath + "ShapeScape/images/ShapeScape-" + int(imageSaveCount[0]) + ".pdf");
-					changeBlendModePDF(pdf, correctBlendModePDF(currentBlendMode));
-				} else {
-					save(docsPath + "ShapeScape/images/ShapeScape-" + int(imageSaveCount[0]) + ".jpg");
-				}
+				//save as vector PDF
+				endRecord();
+				File pdf = new File(docsPath + "ShapeScape/images/ShapeScape-" + int(imageSaveCount[0]) + ".pdf");
+				changeBlendModePDF(pdf, correctBlendModePDF(currentBlendMode));
+        //below is code to save as jpg if desired.
+				//save(docsPath + "ShapeScape/images/ShapeScape-" + int(imageSaveCount[0]) + ".jpg");
 				savePrefsPath(docsPath + "ShapeScape/images/ShapeScape-" + int(imageSaveCount[0]) + "-PRESET");
 			}
 			saveStrings(docsPath + "ShapeScape/imageSaveCount.txt", new String[] {"" + (int(imageSaveCount[0]) + 1)});
